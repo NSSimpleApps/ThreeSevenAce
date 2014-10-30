@@ -2,7 +2,7 @@
 //  ThreeSevenAceTests.m
 //  ThreeSevenAceTests
 //
-//  Created by neo on 30.10.14.
+//  Created by NSSimpleApps on 30.10.14.
 //  Copyright (c) 2014 NSSimpleApps. All rights reserved.
 //
 
