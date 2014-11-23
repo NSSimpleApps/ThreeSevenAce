@@ -412,6 +412,7 @@
 				B5C099521A027927000B14A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5C099531A027927000B14A6 /* Build configuration list for PBXNativeTarget "ThreeSevenAceTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				B5C099551A027927000B14A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

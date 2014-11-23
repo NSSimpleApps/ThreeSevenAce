@@ -14,13 +14,12 @@
 
 @property (assign, nonatomic) BOOL cardViewIsAnimating;
 
-@property (strong, nonatomic) NSTimer *timer;
-
-@property (strong, nonatomic) NSArray *arrayOfCardImages;
-
 @end
 
 static CFTimeInterval const periodOfRotation = 4.0;
+
+static NSString * const kStartRotationTitle = @"Start rotation";
+static NSString * const kStopRotationTitle = @"Stop rotation";
 
 @implementation ViewController
 
@@ -28,46 +27,48 @@ static CFTimeInterval const periodOfRotation = 4.0;
     
     [super viewDidLoad];
     
-    self.arrayOfCardImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"threeOfHearts.jpg"],
-                              [UIImage imageNamed:@"sevenOfClubs.jpg"], [UIImage imageNamed:@"aceOfSpades.jpg"], nil];
-    
     CALayer *cardLayer = [CALayer layer];
-    cardLayer.contents = (id)[self.arrayOfCardImages[0] CGImage];
     cardLayer.frame = CGRectMake(0.f, 0.f, self.cardView.frame.size.width, self.cardView.frame.size.height);
     cardLayer.doubleSided = NO;
     
-    UIImage *backOfCardImage = [UIImage imageNamed:@"backOfCard.jpg"];
-    
     CALayer *backOfCardLayer = [CALayer layer];
-    backOfCardLayer.contents = (id)[backOfCardImage CGImage];
+    backOfCardLayer.contents = (id)[[UIImage imageNamed:@"backOfCard.jpg"] CGImage];
     backOfCardLayer.frame = CGRectMake(0.f, 0.f, self.cardView.frame.size.width, self.cardView.frame.size.height);
     //backOfCardLayer.doubleSided = NO;
     
     [self.cardView.layer addSublayer:backOfCardLayer];
     [self.cardView.layer addSublayer:cardLayer];
     
-    CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
-    animation.fromValue = @(-M_PI_2);
-    animation.toValue = @(3*M_PI_2);
-    animation.repeatCount = INFINITY;
-    animation.duration = periodOfRotation;
+    CABasicAnimation* rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
+    rotation.fromValue = @(-M_PI_2);
+    rotation.toValue = @(3*M_PI_2);
+    rotation.repeatCount = INFINITY;
+    rotation.duration = periodOfRotation;
+    
+    CAKeyframeAnimation *animContents = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    animContents.calculationMode = kCAAnimationDiscrete;
+    
+    NSArray* values = @[(id)[UIImage imageNamed:@"threeOfHearts.jpg"].CGImage,
+                        (id)[UIImage imageNamed:@"sevenOfClubs.jpg"].CGImage,
+                        (id)[UIImage imageNamed:@"aceOfSpades.jpg"].CGImage];
+    animContents.values = values;
+    animContents.duration = [values count]*periodOfRotation;
+    animContents.fillMode = kCAFillModeForwards;
+    animContents.repeatCount = INFINITY;
     
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = 1.0/500.0;
+    
     self.cardView.layer.sublayerTransform = transform;
     
     for (CALayer* layer in self.cardView.layer.sublayers) {
         
-        [layer addAnimation:animation forKey:@"spiningCard"];
+        [layer addAnimation:rotation forKey:@"spinningCard"];
     }
     
-    self.cardViewIsAnimating = YES;
+    [cardLayer addAnimation:animContents forKey:@"changeContents"];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:periodOfRotation
-                                                  target:self
-                                                selector:@selector(changeTopCard)
-                                                userInfo:nil
-                                                 repeats:YES];
+    self.cardViewIsAnimating = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,29 +76,18 @@ static CFTimeInterval const periodOfRotation = 4.0;
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)nextIndex {
+- (IBAction)buttonPressedAction:(UIButton *)sender {
     
-    static NSInteger index = 0;
-    
-    if (index >= [self.arrayOfCardImages count] - 1) {
+    if (self.cardViewIsAnimating) {
         
-        index = 0;
-        return index;
-    }
-    
-    return ++index;
-}
-
-- (void)changeTopCard {
-    
-    CALayer* cardLayer = self.cardView.layer.sublayers[1];
-    
-    cardLayer.contents = (id)[self.arrayOfCardImages[[self nextIndex]] CGImage];
-}
-
-- (IBAction)startRotationAction:(UIButton *)sender {
-    
-    if (!self.cardViewIsAnimating) {
+        CFTimeInterval pausedTime = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+        self.cardView.layer.speed = 0.0;
+        self.cardView.layer.timeOffset = pausedTime;
+        
+        self.cardViewIsAnimating = NO;
+        
+        [sender setTitle:kStartRotationTitle forState:UIControlStateNormal];
+    } else {
         
         CFTimeInterval pausedTime = [self.cardView.layer timeOffset];
         self.cardView.layer.speed = 1.0;
@@ -106,22 +96,9 @@ static CFTimeInterval const periodOfRotation = 4.0;
         CFTimeInterval timeSincePause = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
         self.cardView.layer.beginTime = timeSincePause;
         
-        [self.timer fire];
-        
         self.cardViewIsAnimating = YES;
-    }
-}
-- (IBAction)stopRotationAction:(UIButton *)sender {
-    
-    if (self.cardViewIsAnimating) {
         
-        CFTimeInterval pausedTime = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
-        self.cardView.layer.speed = 0.0;
-        self.cardView.layer.timeOffset = pausedTime;
-        
-        [self.timer invalidate];
-        
-        self.cardViewIsAnimating = NO;
+        [sender setTitle:kStopRotationTitle forState:UIControlStateNormal];
     }
 }
 
