@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GUI-nW-PkO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GUI-nW-PkO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -16,9 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-os-uMO">
-                                <rect key="frame" x="190" y="150" width="220" height="300"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-8i-Uch">
                                 <rect key="frame" x="255" y="550" width="90" height="30"/>
                                 <state key="normal" title="Stop rotation">
@@ -28,13 +25,18 @@
                                     <action selector="buttonPressedAction:" destination="GUI-nW-PkO" eventType="touchUpInside" id="XNf-S4-S4d"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9eR-os-uMO">
+                                <rect key="frame" x="190" y="150" width="220" height="300"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="9eR-os-uMO" secondAttribute="centerY" constant="-0.5" id="6Bi-jz-Ji3"/>
-                            <constraint firstAttribute="centerX" secondItem="Ri5-8i-Uch" secondAttribute="centerX" id="gs4-y8-DgD"/>
-                            <constraint firstAttribute="centerX" secondItem="9eR-os-uMO" secondAttribute="centerX" constant="0.5" id="ofO-aw-LdV"/>
-                            <constraint firstItem="tcU-oI-SWX" firstAttribute="top" secondItem="Ri5-8i-Uch" secondAttribute="bottom" constant="20" id="uqA-ii-bFp"/>
+                            <constraint firstAttribute="centerY" secondItem="Ri5-8i-Uch" secondAttribute="centerY" constant="-265" id="1Dw-bN-ACv"/>
+                            <constraint firstAttribute="centerX" secondItem="Ri5-8i-Uch" secondAttribute="centerX" id="Az5-J7-wdA"/>
+                            <constraint firstAttribute="centerX" secondItem="9eR-os-uMO" secondAttribute="centerX" id="ETk-sX-4gB"/>
+                            <constraint firstItem="Ri5-8i-Uch" firstAttribute="top" secondItem="9eR-os-uMO" secondAttribute="bottom" constant="100" id="LMX-de-u6I"/>
+                            <constraint firstAttribute="centerY" secondItem="9eR-os-uMO" secondAttribute="centerY" id="NLa-87-tdi"/>
+                            <constraint firstItem="9eR-os-uMO" firstAttribute="leading" secondItem="Ri5-8i-Uch" secondAttribute="trailing" constant="-155" id="WRP-Hp-vae"/>
                         </constraints>
                     </view>
                     <connections>
