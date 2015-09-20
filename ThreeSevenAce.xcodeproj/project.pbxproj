@@ -14,18 +14,7 @@
 		B5C0993C1A027927000B14A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C0993A1A027927000B14A6 /* Main.storyboard */; };
 		B5C0993E1A027927000B14A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C0993D1A027927000B14A6 /* Images.xcassets */; };
 		B5C099411A027927000B14A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5C0993F1A027927000B14A6 /* LaunchScreen.xib */; };
-		B5C0994D1A027927000B14A6 /* ThreeSevenAceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C0994C1A027927000B14A6 /* ThreeSevenAceTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B5C099471A027927000B14A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5C099251A027926000B14A6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5C0992C1A027927000B14A6;
-			remoteInfo = ThreeSevenAce;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B594F95B1A223BD8004A9793 /* ThreeSevenAce.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ThreeSevenAce.gif; sourceTree = "<group>"; };
@@ -39,20 +28,10 @@
 		B5C0993B1A027927000B14A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5C0993D1A027927000B14A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B5C099401A027927000B14A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		B5C099461A027927000B14A6 /* ThreeSevenAceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeSevenAceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C0994B1A027927000B14A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5C0994C1A027927000B14A6 /* ThreeSevenAceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeSevenAceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B5C0992A1A027927000B14A6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C099431A027927000B14A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -66,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				B5C0992F1A027927000B14A6 /* ThreeSevenAce */,
-				B5C099491A027927000B14A6 /* ThreeSevenAceTests */,
 				B5C0992E1A027927000B14A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				B5C0992D1A027927000B14A6 /* ThreeSevenAce.app */,
-				B5C099461A027927000B14A6 /* ThreeSevenAceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,23 +82,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B5C099491A027927000B14A6 /* ThreeSevenAceTests */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0994C1A027927000B14A6 /* ThreeSevenAceTests.m */,
-				B5C0994A1A027927000B14A6 /* Supporting Files */,
-			);
-			path = ThreeSevenAceTests;
-			sourceTree = "<group>";
-		};
-		B5C0994A1A027927000B14A6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0994B1A027927000B14A6 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,39 +102,17 @@
 			productReference = B5C0992D1A027927000B14A6 /* ThreeSevenAce.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B5C099451A027927000B14A6 /* ThreeSevenAceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B5C099531A027927000B14A6 /* Build configuration list for PBXNativeTarget "ThreeSevenAceTests" */;
-			buildPhases = (
-				B5C099421A027927000B14A6 /* Sources */,
-				B5C099431A027927000B14A6 /* Frameworks */,
-				B5C099441A027927000B14A6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B5C099481A027927000B14A6 /* PBXTargetDependency */,
-			);
-			name = ThreeSevenAceTests;
-			productName = ThreeSevenAceTests;
-			productReference = B5C099461A027927000B14A6 /* ThreeSevenAceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B5C099251A027926000B14A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = NSSimpleApps;
 				TargetAttributes = {
 					B5C0992C1A027927000B14A6 = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					B5C099451A027927000B14A6 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = B5C0992C1A027927000B14A6;
 					};
 				};
 			};
@@ -192,7 +130,6 @@
 			projectRoot = "";
 			targets = (
 				B5C0992C1A027927000B14A6 /* ThreeSevenAce */,
-				B5C099451A027927000B14A6 /* ThreeSevenAceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,13 +146,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5C099441A027927000B14A6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -229,23 +159,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5C099421A027927000B14A6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C0994D1A027927000B14A6 /* ThreeSevenAceTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B5C099481A027927000B14A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5C0992C1A027927000B14A6 /* ThreeSevenAce */;
-			targetProxy = B5C099471A027927000B14A6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5C0993A1A027927000B14A6 /* Main.storyboard */ = {
@@ -287,6 +201,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -301,7 +216,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -349,6 +264,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ThreeSevenAce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "NSSimpleApps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -360,42 +276,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ThreeSevenAce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "NSSimpleApps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B5C099541A027927000B14A6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ThreeSevenAceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreeSevenAce.app/ThreeSevenAce";
-			};
-			name = Debug;
-		};
-		B5C099551A027927000B14A6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ThreeSevenAceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreeSevenAce.app/ThreeSevenAce";
 			};
 			name = Release;
 		};
@@ -416,15 +299,6 @@
 			buildConfigurations = (
 				B5C099511A027927000B14A6 /* Debug */,
 				B5C099521A027927000B14A6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B5C099531A027927000B14A6 /* Build configuration list for PBXNativeTarget "ThreeSevenAceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B5C099541A027927000B14A6 /* Debug */,
-				B5C099551A027927000B14A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

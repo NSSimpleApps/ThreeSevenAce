@@ -48,9 +48,10 @@ static NSString * const kStopRotationTitle = @"Stop rotation";
     CAKeyframeAnimation *animContents = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
     animContents.calculationMode = kCAAnimationDiscrete;
     
-    NSArray* values = @[(id)[UIImage imageNamed:@"threeOfHearts.jpg"].CGImage,
+    NSArray *values = @[(id)[UIImage imageNamed:@"threeOfHearts.jpg"].CGImage,
                         (id)[UIImage imageNamed:@"sevenOfClubs.jpg"].CGImage,
                         (id)[UIImage imageNamed:@"aceOfSpades.jpg"].CGImage];
+    
     animContents.values = values;
     animContents.duration = [values count]*periodOfRotation;
     animContents.fillMode = kCAFillModeForwards;
