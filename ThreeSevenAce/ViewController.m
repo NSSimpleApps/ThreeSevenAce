@@ -12,14 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 
-@property (assign, nonatomic) BOOL cardViewIsAnimating;
-
 @end
 
 static CFTimeInterval const periodOfRotation = 4.0;
-
-static NSString * const kStartRotationTitle = @"Start rotation";
-static NSString * const kStopRotationTitle = @"Stop rotation";
 
 @implementation ViewController
 
@@ -68,8 +63,6 @@ static NSString * const kStopRotationTitle = @"Stop rotation";
     }
     
     [cardLayer addAnimation:animContents forKey:@"changeContents"];
-    
-    self.cardViewIsAnimating = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,30 +70,31 @@ static NSString * const kStopRotationTitle = @"Stop rotation";
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)buttonPressedAction:(UIButton *)sender {
+- (IBAction)stopRotation:(UIButton *)sender {
     
-    if (self.cardViewIsAnimating) {
-        
-        CFTimeInterval pausedTime = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
-        self.cardView.layer.speed = 0.0;
-        self.cardView.layer.timeOffset = pausedTime;
-        
-        self.cardViewIsAnimating = NO;
-        
-        [sender setTitle:kStartRotationTitle forState:UIControlStateNormal];
-    } else {
-        
-        CFTimeInterval pausedTime = [self.cardView.layer timeOffset];
-        self.cardView.layer.speed = 1.0;
-        self.cardView.layer.timeOffset = 0.0;
-        self.cardView.layer.beginTime = 0.0;
-        CFTimeInterval timeSincePause = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-        self.cardView.layer.beginTime = timeSincePause;
-        
-        self.cardViewIsAnimating = YES;
-        
-        [sender setTitle:kStopRotationTitle forState:UIControlStateNormal];
-    }
+    CFTimeInterval pausedTime = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    self.cardView.layer.speed = 0.0;
+    self.cardView.layer.timeOffset = pausedTime;
+    
+    [sender removeTarget:self action:_cmd forControlEvents:UIControlEventTouchUpInside];
+    [sender setTitle:@"Start rotation" forState:UIControlStateNormal];
+    
+    [sender addTarget:self action:@selector(startRotation:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (IBAction)startRotation:(UIButton *)sender {
+    
+    CFTimeInterval pausedTime = [self.cardView.layer timeOffset];
+    self.cardView.layer.speed = 1.0;
+    self.cardView.layer.timeOffset = 0.0;
+    self.cardView.layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [self.cardView.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    self.cardView.layer.beginTime = timeSincePause;
+    
+    [sender removeTarget:self action:_cmd forControlEvents:UIControlEventTouchUpInside];
+    [sender setTitle:@"Stop rotation" forState:UIControlStateNormal];
+    
+    [sender addTarget:self action:@selector(stopRotation:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end

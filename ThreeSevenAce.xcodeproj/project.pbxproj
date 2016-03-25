@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B594F95C1A223BD8004A9793 /* ThreeSevenAce.gif in Resources */ = {isa = PBXBuildFile; fileRef = B594F95B1A223BD8004A9793 /* ThreeSevenAce.gif */; };
 		B5C099331A027927000B14A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C099321A027927000B14A6 /* main.m */; };
 		B5C099361A027927000B14A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C099351A027927000B14A6 /* AppDelegate.m */; };
 		B5C099391A027927000B14A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C099381A027927000B14A6 /* ViewController.m */; };
@@ -142,7 +141,6 @@
 				B5C0993C1A027927000B14A6 /* Main.storyboard in Resources */,
 				B5C099411A027927000B14A6 /* LaunchScreen.xib in Resources */,
 				B5C0993E1A027927000B14A6 /* Images.xcassets in Resources */,
-				B594F95C1A223BD8004A9793 /* ThreeSevenAce.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +214,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -251,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
