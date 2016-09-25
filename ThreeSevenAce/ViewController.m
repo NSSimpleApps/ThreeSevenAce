@@ -27,7 +27,7 @@ static CFTimeInterval const periodOfRotation = 4.0;
     cardLayer.doubleSided = NO;
     
     CALayer *backOfCardLayer = [CALayer layer];
-    backOfCardLayer.contents = (id)[[UIImage imageNamed:@"backOfCard.jpg"] CGImage];
+    backOfCardLayer.contents = (id)[UIImage imageNamed:@"backOfCard.jpg"].CGImage;
     backOfCardLayer.frame = CGRectMake(0.f, 0.f, self.cardView.frame.size.width, self.cardView.frame.size.height);
     //backOfCardLayer.doubleSided = NO;
     
@@ -48,7 +48,7 @@ static CFTimeInterval const periodOfRotation = 4.0;
                         (id)[UIImage imageNamed:@"aceOfSpades.jpg"].CGImage];
     
     animContents.values = values;
-    animContents.duration = [values count]*periodOfRotation;
+    animContents.duration = values.count*periodOfRotation;
     animContents.fillMode = kCAFillModeForwards;
     animContents.repeatCount = INFINITY;
     
@@ -84,7 +84,7 @@ static CFTimeInterval const periodOfRotation = 4.0;
 
 - (IBAction)startRotation:(UIButton *)sender {
     
-    CFTimeInterval pausedTime = [self.cardView.layer timeOffset];
+    CFTimeInterval pausedTime = (self.cardView.layer).timeOffset;
     self.cardView.layer.speed = 1.0;
     self.cardView.layer.timeOffset = 0.0;
     self.cardView.layer.beginTime = 0.0;
